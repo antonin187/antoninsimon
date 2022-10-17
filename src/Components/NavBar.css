@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+.navbarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.startDiv {
+    font-size: 180%;
+    margin: 30px 20px;
+}
+.endDiv {
+    display: flex;
+    flex-direction: row;
+}
+.libelleEndDiv {
+    font-size: 180%;
+    margin: 30px 20px;
+}
+.burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.bar {
+    width: 40px;
+    height: 2px;
+    background-color: white;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.lineContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.line {
+    width: 100%;
+    display: block;
+    height: 2px;
+    background-color: white;
+}

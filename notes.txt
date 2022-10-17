@@ -1,0 +1,4 @@
+Page Home
+Page Project
+Page skills
+Page Contact

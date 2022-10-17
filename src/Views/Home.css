@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url("https://fonts.googleapis.com/css?family=Marcellus");
+
+:root {
+	--dark: #1d1d1d;
+  --grey-dark: #414141;
+	--light: #fff;
+	--mid: #ededed;
+  --grey: #989898;
+  --gray: #989898;
+	--green: #28a92b;
+  --green-dark: #4e9815;
+	--green-light: #6fb936;
+	--blue: #2c7ad2;
+	--purple: #8d3dae;
+	--red: #c82736;
+	--orange: #e77614;
+  accent-color: var(--green);
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: black;
+  color: var(--light);
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+/* .darkMode {
+  background-color: black;
+  color: var(--light);
+}
+.lightMode {
+  background-color: var(--light);
+  color: black;
+} */
+.bodyContainer {
+  padding: 20px 30px;
+  line-height: 1.2;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--green);
+  font-weight: 600;
+  color: var(--light);
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+.myDiv {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.myDiv:nth-child(1) { background-color: var(--red)}
+.myDiv:nth-child(2) { background-color: var(--blue)}
+.myDiv:nth-child(3) { background-color: var(--green)}
+.myDiv:nth-child(4) { background-color: var(--orange)}
+.myDiv:nth-child(5) { background-color: var(--purple)}
+.myDiv:nth-child(6) { background-color: var(--grey-dark)}
+.myDiv:nth-child(7) { background-color: var(--light)}
+.myDiv:nth-child(8) { background-color: var(--gray)}
+
+.myName {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.myNameSpan {
+    font-size: 17vw;
+    transform: translateY(350px);
+    opacity: 0;
+}
+
+
+.containerProfilPic {
+    height: 100vh;
+    margin: 30px 80px 0px 80px;
+    transform-origin: center top;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.profilePic {
+    width: 100%;
+    height: 200vh;
+    object-fit: cover;
+}
+
+
+.subjectContainer {
+    height: 0;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.subjectImgContainer {
+    min-height: 20vh;
+    width: 20vw;
+    overflow: hidden;
+    margin-right: 15vw;
+    transform: translateY(-5vh);
+}
+
+.chefaimImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+
+.marger {
+    margin-top: 1000px;
+    display: block;
+}
+
+.separatorLineContainer{
+  width: 100%;
+  margin-top: 40vh;
+}
+
+.wAMContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  text-transform: uppercase;
+
+}
+
+.myPresentation {
+  margin: 20vh 10vw 0 10vw;
+}
+.mePresentation {
+  font-size: 1rem;
+}
+.descriptionPresentation {
+  margin-top: 50px;
+  font-size: 4.6875rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1.2;
+}
+.happyFace {
+  height: 4.6875rem;
+}
+
+.decouvrirProjet {
+  margin-top: 50px;
+  width: 30vw;
+  display: flex;
+  align-items: center;
+}
+.decouvrirProjet>img {
+  height: 1rem;
+  margin-right: 30px;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+.decouvrirProjet>span {
+  color: white;
+  
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+.decouvrirProjet:hover img {
+  transform: translateX(10px);
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+.decouvrirProjet:hover span {
+  color: #989898;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+
+
+.citationSection, .citationContainer {
+  margin-top: 20vh;
+  width: 100%;
+}
+.inspirationnal {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 200px;
+}
+.inspirationnal>span {
+  font-family: 'Marcellus';
+  font-weight: 100;
+  font-style: italic;
+  font-size: 7em;
+}
+.citationContainerRight {
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  margin: 10vh 0 10vh 0;
+}
+.citationContainerLeft {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 10vh 0 10vh 0;
+}
+.citation {
+  width: 40vw;
+  text-transform: uppercase;
+  font-size: 3.5em;
+  font-weight: bold;
+  z-index: 100;
+  cursor: none;
+}
+.citRight {
+  text-align: end;
+  margin-right: 50px;
+}
+.citLeft {
+  text-align: start;
+  margin-left: 50px;
+}
+
+.citLibelle {
+  font-style: italic;
+  font-size: 0.9em;
+  margin-top: 30px;
+}
+
+.mouseIMGfollowerMJ, .mouseIMGfollowerJazzy, .mouseIMGfollowerShepard {
+  position: absolute;
+  width: 250px;
+  height: 400px;
+  background-size: cover;
+  border-radius: 60px;
+  opacity: 0;
+  z-index: -10;
+}
+.mouseIMGfollowerMJ {
+  background-image: url('../assets/michaeljordan.jpg');
+}
+.mouseIMGfollowerJazzy {
+  background-image: url('../assets/JazzyBazz.jpg');
+}
+.mouseIMGfollowerShepard {
+  background-image: url('../assets/ShepardObey.jpg');
+  background-position: center;
+}
+
+
+.interestsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  /* transform: translateY(-100px); */
+}
+.interestsCenterDiv {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+.memoji {
+  height: 20vw;
+}
+.interestsText {
+  transform: translateY(-30px);
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.interestsImg {
+  position: absolute;
+  transform: scale(1);
+}
+.basketballEmoji { top: 17%; left: 23%; opacity: 0;}
+.computerEmoji { left: 10%; opacity: 0;}
+.pencilEmoji { bottom: 17%; left: 23%; opacity: 0;}
+.headphonesEmoji { top: 17%; right: 23%; opacity: 0;}
+.trophyEmoji { right: 10%; opacity: 0;}
+.phoneEmoji { bottom: 17%; right: 23%; opacity: 0;}
+
+
+
+
+
+
+.testCircleContainer {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.testCircle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: white;;
+}
