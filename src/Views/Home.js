@@ -9,7 +9,6 @@ import Navbar from '../Components/NavBar';
 // IMAGE
 import profilPic from '../assets/profil_pic.jpg'
 import chefaimPres from '../assets/CHEFAIM_Presentation.png'
-import { TweenLite } from 'gsap/gsap-core';
 
 
 // TODO remove mousefollow when it's not necessarry
