@@ -4,6 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import './assets/fonts/Mazius/mazius_display_extraitalic-webfont.woff';
+import './assets/fonts/Mazius/mazius_display_extraitalic-webfont.woff2';
+import './assets/fonts/Mazius/mazius_display_italic-webfont.woff';
+import './assets/fonts/Mazius/mazius_display_italic-webfont.woff2';
+import './assets/fonts/Mazius/mazius_display_regular-webfont.woff';
+import './assets/fonts/Mazius/mazius_display_regular-webfont.woff2';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
