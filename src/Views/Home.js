@@ -254,7 +254,7 @@ export default function Home() {
                         </div>
                     </section>
 
-                    <div className='interestsContainer'>
+                    {/* <div className='interestsContainer'>
                         <div className='interestsCenterDiv'>
                             <video autoPlay loop muted className='memoji'>
                                 <source src={require('../assets/memoji_reversed.mp4')} type="video/mp4" />
@@ -267,7 +267,7 @@ export default function Home() {
                         <img className='interestsImg headphonesEmoji' src={require('../assets/headphones_emoji.png')} />
                         <img className='interestsImg trophyEmoji' src={require('../assets/trophy_emoji.png')} />
                         <img className='interestsImg phoneEmoji' src={require('../assets/phone_emoji.png')} />
-                    </div>
+                    </div> */}
                     {/* <div className='testCircleContainer'>
                         <div className='testCircle'></div>
                     </div> */}
