@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Poppins");
 @import url("https://fonts.googleapis.com/css?family=Marcellus");
+@import url("https://fonts.googleapis.com/css?family=Nixie+One");
 
 :root {
 	--dark: #1d1d1d;
@@ -39,6 +40,26 @@ body {
   background-color: var(--light);
   color: black;
 } */
+.tinyText {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+.smallText {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+.mediumText {
+  text-transform: uppercase;
+  font-size: 2.2rem;
+}
+.bigText {
+  text-transform: uppercase;
+  font-size: 4.5rem;
+}
+.hugeText {
+  text-transform: uppercase;
+  font-size: 11rem;
+}
 .bodyContainer {
   padding: 20px 30px;
   line-height: 1.2;
@@ -84,6 +105,42 @@ body{
 .myDiv:nth-child(7) { background-color: var(--light)}
 .myDiv:nth-child(8) { background-color: var(--gray)}
 
+.headContainer {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+.headSpanContainer {
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 20vh 10vw 0 10vw;
+  opacity: 1;
+}
+.cards {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.profile-card {
+  width: 20vw;
+}
+.student-card, .developer-card, .basketball-card {
+  width: 25vw;
+}
+.profile-card, .student-card, .developer-card, .basketball-card {
+  opacity: 0;
+}
+/* .antoninSpan:hover .profile-card {
+  opacity: 1!important;
+} */
+/* .profile-card:hover, .student-card:hover, .developer-card:hover, .basketball-card:hover {
+  opacity: 1!important;
+} */
 .myName {
     width: 100%;
     display: flex;
@@ -97,7 +154,54 @@ body{
     opacity: 0;
 }
 
-
+.currentProjectContainer {
+  margin-top: 10vh;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+.currentProjectDescrContainer {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.descrCurrentProject {
+  width: 50%;
+  padding-left: 7vw;
+  /* text-align: left; */
+}
+.fullWidthLineDashed {
+  border-top: dashed 1px white;
+}
+.chefaim {
+  font-family: "MaziusExtraItalic";
+  font-size: 9rem;
+  text-transform: none!important;
+  background: linear-gradient(90deg, #ee5356, #f7a9ab, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.currentProjectImgaesContainer {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mockups {
+  width: 20vw;
+  position: absolute;
+}
+.mockups:nth-child(1) {
+  transform: translate(-300px, -100px) rotate(-15deg);
+}
+.mockups:nth-child(2) {
+  transform: translate(-150px, -50px) rotate(-10deg);
+}
+.mockups:nth-child(3) {
+  transform: translate(0px, 0px) rotate(-5deg);
+}
 .containerProfilPic {
     height: 100vh;
     margin: 30px 80px 0px 80px;

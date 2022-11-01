@@ -20,7 +20,15 @@ export default function Home() {
         gsap.to('.mouseIMGfollowerJazzy', { position: 'absolute', x: event.pageX-125, y: event.pageY-200});
         gsap.to('.mouseIMGfollowerShepard', { position: 'absolute', x: event.pageX-125, y: event.pageY-200});
     };
-    window.addEventListener('mousemove', handleWindowMouseMove);
+
+    const cardDeplacement = event => {
+        let cards = document.querySelectorAll('.cards');
+        cards.forEach(element => {
+            gsap.to(element, { position: 'absolute', x: event.pageX-(element.offsetWidth / 2), y: event.pageY + 20, duration: 0});
+        });
+    }
+
+    window.addEventListener('mousemove', {handleWindowMouseMove, cardDeplacement});
 
     const onEnterMJ = () => {
         gsap.to('.mouseIMGfollowerMJ', { borderRadius: '20px', opacity: 1, duration: 0.7, ease: "Power3.easeOut" });
@@ -42,6 +50,58 @@ export default function Home() {
         gsap.to('.mouseIMGfollowerShepard', { borderRadius: '60px', opacity: 0, duration: 0.7, ease: "Power3.easeOut" });
     };
 
+    const onEnterSpanProfile = ({currentTarget}) => {
+        currentTarget.classList.remove('spanHead')
+        gsap.to(".spanHead", {opacity: 0.2, duration: 0.3, ease: "Power3.easeOut" });
+        gsap.to(".profile-card", {opacity: 1, duration: 0.5, ease: "Power3.easeOut", rotate: -5, scale: 1.1});
+    }
+    const onLeaveSpanProfile = ({currentTarget}) => {
+        currentTarget.classList.add('spanHead')
+        gsap.to(".spanHead", {opacity: 1, duration: 0.3, ease: "Power3.easeOut" });
+        gsap.to(".profile-card", {opacity: 0, duration: 0.5, ease: "Power3.easeOut", rotate: 0, scale: 1});
+    }
+    const onEnterSpanStudent = ({currentTarget}) => {
+        currentTarget.classList.remove('spanHead')
+        gsap.to(".spanHead", {opacity: 0.2, duration: 0.3, ease: "Power3.easeOut" });
+        gsap.to(".student-card", {opacity: 1, duration: 0.5, ease: "Power3.easeOut", rotate: 5, scale: 1.1});
+    }
+    const onLeaveSpanStudent = ({currentTarget}) => {
+        currentTarget.classList.add('spanHead')
+        gsap.to(".spanHead", {opacity: 1, duration: 0.3, ease: "Power3.easeOut" });
+        gsap.to(".student-card", {opacity: 0, duration: 0.5, ease: "Power3.easeOut", rotate: 0, scale: 1 });
+    }
+    const onEnterSpanDeveloper = ({currentTarget}) => {
+        currentTarget.classList.remove('spanHead')
+        gsap.to(".spanHead", {opacity: 0.2, duration: 0.3, ease: "Power3.easeOut"});
+        gsap.to(".developer-card", {opacity: 1, duration: 0.5, ease: "Power3.easeOut", rotate: -5, scale: 1.1});
+    }
+    const onLeaveSpanDeveloper = ({currentTarget}) => {
+        currentTarget.classList.add('spanHead')
+        gsap.to(".spanHead", {opacity: 1, duration: 0.3, ease: "Power3.easeOut" });
+        gsap.to(".developer-card", {opacity: 0, duration: 0.5, ease: "Power3.easeOut", rotate: 0, scale: 1 });
+    }
+    const onEnterSpanBasketball = ({currentTarget}) => {
+        currentTarget.classList.remove('spanHead')
+        gsap.to(".spanHead", {opacity: 0.2, duration: 0.3, ease: "Power3.easeOut"});
+        gsap.to(".basketball-card", {opacity: 1, duration: 0.5, ease: "Power3.easeOut", rotate: 5, scale: 1.1});
+    }
+    const onLeaveSpanBasketball = ({currentTarget}) => {
+        currentTarget.classList.add('spanHead')
+        gsap.to(".spanHead", {opacity: 1, duration: 0.3, ease: "Power3.easeOut" });
+        gsap.to(".basketball-card", {opacity: 0, duration: 0.5, ease: "Power3.easeOut", rotate: 0, scale: 1 });
+    }
+
+    const onEnterGrayScale = ({currentTarget}) => {
+        // currentTarget.classList.add('grayscale')
+        gsap.to(currentTarget, {filter: "grayscale(0%)", duration: 1, ease: "Power3.easeOut"})
+        console.log("Enter")
+    }
+    const onLeaveGrayScale = async ({currentTarget}) => {
+        gsap.to(currentTarget, {filter: "grayscale(100%)", duration: 1, ease: "Power3.easeOut"})
+        console.log("Leave")
+        // currentTarget.classList.remove('grayscale')
+    }
+    
 
 //   const q = gsap.utils.selector(app);
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -51,7 +111,7 @@ export default function Home() {
     let ctx = gsap.context(() => {
 
         ScrollSmoother.create({
-            smooth: 3, // how long (in seconds) it takes to "catch up" to the native scroll position
+            smooth: 2, // how long (in seconds) it takes to "catch up" to the native scroll position
             effects: true, // looks for data-speed and data-lag attributes on elements
             content: "#smooth-content",
             smoothTouch: 0.1,
@@ -82,6 +142,11 @@ export default function Home() {
         emojiTL.to('.headphonesEmoji', {opacity: 1, duration: 5}, 10);
         emojiTL.to('.phoneEmoji', {opacity: 1, duration: 5}, 12);
 
+        gsap.to('.mockups', {transform: 'rotate(25deg)', scrollTrigger: {
+            scrub: true,
+        }})
+        gsap.to('.mockups', {filter: "grayscale(100%)"})
+
     })
     return () => ctx.revert();
   }, []);
@@ -92,9 +157,9 @@ export default function Home() {
             <div className='mouseIMGfollowerMJ'></div>
             <div className='mouseIMGfollowerJazzy'></div>
             <div className='mouseIMGfollowerShepard'></div>
-                <Navbar />
+                {/* <Navbar /> */}
                 <div className='bodyContainer'>
-                    <div className='myName'>
+                    {/* <div className='myName'>
                         <span className='myNameSpan lett1'>W</span>
                         <span className='myNameSpan lett2'>E</span>
                         <span className='myNameSpan lett3'>L</span>
@@ -113,13 +178,45 @@ export default function Home() {
                         <div className='subjectImgContainer'>
                             <img className='chefaimImg' src={chefaimPres} alt=''/>
                         </div>
+                    </div> */}
+
+                    <div className='headContainer' onMouseMove={cardDeplacement}>
+                        <div className='headSpanContainer'>
+                            <span className='spanHead antoninSpan' onMouseEnter={onEnterSpanProfile} onMouseLeave={onLeaveSpanProfile}>Antonin Simon</span>
+                            <span className='spanHead'>, je suis </span>
+                            <span className='spanHead studentSpan' onMouseEnter={onEnterSpanStudent} onMouseLeave={onLeaveSpanStudent}>étudiant</span>
+                            <span className='spanHead'>, </span> 
+                            <span className='spanHead developerSpan' onMouseEnter={onEnterSpanDeveloper} onMouseLeave={onLeaveSpanDeveloper}>développeur</span>
+                            <span className='spanHead'>  et </span> 
+                            <span className='spanHead basketballSpan' onMouseEnter={onEnterSpanBasketball} onMouseLeave={onLeaveSpanBasketball}>passionné de basketball</span>
+                            <span className='spanHead'>.</span>
+                        </div>
+                        <img className='cards profile-card' src={require('../assets/cards/profile-card.png')} />
+                        <img className='cards student-card' src={require('../assets/cards/student-card.png')} />
+                        <img className='cards developer-card' src={require('../assets/cards/developer-card.png')} />
+                        <img className='cards basketball-card' src={require('../assets/cards/basketball-card.png')} />
                     </div>
 
+                    <div className='currentProjectContainer'>
+                        <div className='currentProjectDescrContainer'>
+                            <div className='smallText descrCurrentProject'>
+                            <div className='samllText'>Dernier projet en cours<div className='fullWidthLineDashed'></div></div>
+                                <span className='chefaim'>Chefaim</span>
+                            </div>
+                            {/* <div className='mediumText'>Mon projet en cours</div>
+                            <div className='hugeText chefaim'>Chefaim</div>
+                            <div className='mediumText'>Application mobile du cuisine et de gestion de ressources dans son réfrigirateur</div> */}
+                        </div>
+                        <div className='currentProjectImgaesContainer'>
+                            <img onMouseEnter={onEnterGrayScale} onMouseLeave={onLeaveGrayScale} className='mockups' src={require('../assets/mockups/scan.png')}></img>
+                            <img onMouseEnter={onEnterGrayScale} onMouseLeave={onLeaveGrayScale} className='mockups' src={require('../assets/mockups/Recette_1.png')}></img>
+                            <img onMouseEnter={onEnterGrayScale} onMouseLeave={onLeaveGrayScale} className='mockups' src={require('../assets/mockups/Homepage Recettes.png')}></img>
+                        </div>
+                    </div>
 
                     <div className='separatorLineContainer'>
                         <span className='line'></span>
                     </div>
-
                     <div className='wAMContainer'>
                         <div>What</div>
                         <div>About</div>
@@ -162,7 +259,7 @@ export default function Home() {
                             <video autoPlay loop muted className='memoji'>
                                 <source src={require('../assets/memoji_reversed.mp4')} type="video/mp4" />
                             </video>
-                        <div className='interestsText'>J'ai plusieurs passions.</div>
+                        <div className='interestsText'>What about passions ?</div>
                         </div>
                         <img className='interestsImg basketballEmoji' src={require('../assets/basketball_emoji.png')} />
                         <img className='interestsImg computerEmoji' src={require('../assets/computer_emoji.png')} />

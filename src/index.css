@@ -11,3 +11,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+@font-face {
+  font-family: "MaziusExtraItalic";
+  src: local("MaziusExtraItalic"),
+    url("./assets/fonts/Mazius/mazius_display_extraitalic-webfont.woff") format("woff");
+  /* font-weight: bold; */
+}
+@font-face {
+  font-family: "MaziusExtraItalic";
+  src: local("MaziusExtraItalic"),
+    url("./assets/fonts/Mazius/mazius_display_extraitalic-webfont.woff2") format("woff2");
+  /* font-weight: bold; */
+}
+@font-face {
+  font-family: "MaziusItalic";
+  src: local("MaziusItalic"),
+    url("./assets/fonts/Mazius/mazius_display_italic-webfont.woff") format("woff");
+  /* font-weight: bold; */
+}
+@font-face {
+  font-family: "MaziusItalic";
+  src: local("MaziusItalic"),
+    url("./assets/fonts/Mazius/mazius_display_extraitalic-webfont.woff2") format("woff2");
+  /* font-weight: bold; */
+}
+@font-face {
+  font-family: "MaziusRegular";
+  src: local("MaziusRegular"),
+    url("./assets/fonts/Mazius/mazius_display_regular-webfont.woff") format("woff");
+  /* font-weight: bold; */
+}
+@font-face {
+  font-family: "MaziusRegular";
+  src: local("MaziusRegular"),
+    url("./assets/fonts/Mazius/mazius_display_regular-webfont.woff2") format("woff2");
+  /* font-weight: bold; */
+}
+  
