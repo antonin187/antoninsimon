@@ -126,22 +126,6 @@ export default function Home() {
         tlName.to('.lett6', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .5);
         tlName.to('.lett7', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .58);
 
-        var emojiTL = gsap.timeline( {
-            scrollTrigger: {
-                trigger: '.interestsContainer',
-                scrub: true,
-                pin: '.bodyContainer',
-                start: "center center",
-                end: "+=500"
-            }
-        })
-        emojiTL.to('.basketballEmoji', {opacity: 1, duration: 5}, 2);
-        emojiTL.to('.computerEmoji', {opacity: 1, duration: 5}, 4);
-        emojiTL.to('.trophyEmoji', {opacity: 1, duration: 5}, 6);
-        emojiTL.to('.pencilEmoji', {opacity: 1, duration: 5}, 8);
-        emojiTL.to('.headphonesEmoji', {opacity: 1, duration: 5}, 10);
-        emojiTL.to('.phoneEmoji', {opacity: 1, duration: 5}, 12);
-
         gsap.to('.mockups', {transform: 'rotate(25deg)', scrollTrigger: {
             scrub: true,
         }})
@@ -200,8 +184,13 @@ export default function Home() {
                     <div className='currentProjectContainer'>
                         <div className='currentProjectDescrContainer'>
                             <div className='smallText descrCurrentProject'>
-                            <div className='samllText'>Dernier projet en cours<div className='fullWidthLineDashed'></div></div>
-                                <span className='chefaim'>Chefaim</span>
+                            <div className='samllText'>Dernier projet en cours</div>
+                            <span className='chefaim'>Chefaim</span>
+                            <div className='tagContainer'>
+                                <div>
+
+                                </div>
+                            </div>
                             </div>
                             {/* <div className='mediumText'>Mon projet en cours</div>
                             <div className='hugeText chefaim'>Chefaim</div>
@@ -217,7 +206,48 @@ export default function Home() {
                     <div className='separatorLineContainer'>
                         <span className='line'></span>
                     </div>
-                    <div className='wAMContainer'>
+                    <div className='subSeparatorLine'>
+                        <div>Mes</div>
+                        <div>Autres</div>
+                        <div>Projets</div>
+                    </div>
+
+                    <section>
+                        {/* CAVE
+                        AirZen
+                        Banque Alimenatire
+                        App de transports
+                        BabyFun */}
+                        <section className='sectionProjects1'>
+                           <div className='CAVEcontainer' onMouseEnter={() => {gsap.to('body', {background: '#a65467', duration: 0.5})}}
+                        onMouseLeave={() => {gsap.to('body', {background: 'black', duration: 0.5})}}
+                        >
+                            <img src={require('../assets/CAVE/Panel.png')} data-speed="auto" className='CAVE_img' alt="" />
+                            <div>Tags</div>
+                            <div>CAVE</div>
+                        </div> 
+
+                        <div className='AirZencontainer' onMouseEnter={() => {gsap.to('body', {background: '#007885', duration: 0.5})}}
+                        onMouseLeave={() => {gsap.to('body', {background: 'black', duration: 0.5})}}
+                        >
+                            <img src={require('../assets/AirZen/microphone.jpg')} data-speed="auto" className='AirZen_img' alt="" />
+                            <div>Tags</div>
+                            <div>CAVE</div>
+                        </div>
+                        </section>
+                        
+                        {/* <section className='AirZenSection'>
+                            
+                        </section> */}
+
+                        
+
+                    </section>
+
+                    <div className='separatorLineContainer'>
+                        <span className='line'></span>
+                    </div>
+                    <div className='subSeparatorLine'>
                         <div>What</div>
                         <div>About</div>
                         <div>Me</div>
@@ -253,24 +283,6 @@ export default function Home() {
                             <span className='citLibelle citRight'>&#8212; Shepard Fairay, street artiste</span>
                         </div>
                     </section>
-
-                    {/* <div className='interestsContainer'>
-                        <div className='interestsCenterDiv'>
-                            <video autoPlay loop muted className='memoji'>
-                                <source src={require('../assets/memoji_reversed.mp4')} type="video/mp4" />
-                            </video>
-                        <div className='interestsText'>What about passions ?</div>
-                        </div>
-                        <img className='interestsImg basketballEmoji' src={require('../assets/basketball_emoji.png')} />
-                        <img className='interestsImg computerEmoji' src={require('../assets/computer_emoji.png')} />
-                        <img className='interestsImg pencilEmoji' src={require('../assets/pencil_emoji.png')} />
-                        <img className='interestsImg headphonesEmoji' src={require('../assets/headphones_emoji.png')} />
-                        <img className='interestsImg trophyEmoji' src={require('../assets/trophy_emoji.png')} />
-                        <img className='interestsImg phoneEmoji' src={require('../assets/phone_emoji.png')} />
-                    </div> */}
-                    {/* <div className='testCircleContainer'>
-                        <div className='testCircle'></div>
-                    </div> */}
 
                     {/* TODO Delete marger */}
                     <div className='marger'>hello</div>

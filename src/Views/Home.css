@@ -138,9 +138,9 @@ body{
 /* .antoninSpan:hover .profile-card {
   opacity: 1!important;
 } */
-/* .profile-card:hover, .student-card:hover, .developer-card:hover, .basketball-card:hover {
+.profile-card:hover, .student-card:hover, .developer-card:hover, .basketball-card:hover {
   opacity: 1!important;
-} */
+}
 .myName {
     width: 100%;
     display: flex;
@@ -202,6 +202,42 @@ body{
 .mockups:nth-child(3) {
   transform: translate(0px, 0px) rotate(-5deg);
 }
+
+.sectionProjects1 {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.CAVEcontainer {
+  width: 45vw;
+  height: 90vh;
+  border-radius: 50px;
+  transform-origin: center top;
+  overflow: hidden;
+}
+.CAVE_img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.AirZenSection {
+  display: flex;
+  justify-content: end;
+}
+.AirZencontainer {
+  align-self: flex-end;
+  width: 25vw;
+  height: 25vw;
+  border-radius: 50px;
+  transform-origin: center top;
+  overflow: hidden;
+}
+.AirZen_img {
+  width: 100%;
+  object-fit: cover;
+}
+
 .containerProfilPic {
     height: 100vh;
     margin: 30px 80px 0px 80px;
@@ -245,10 +281,10 @@ body{
 
 .separatorLineContainer{
   width: 100%;
-  margin-top: 40vh;
+  margin-top: 30vh;
 }
 
-.wAMContainer {
+.subSeparatorLine {
   display: flex;
   width: 100%;
   justify-content: space-between;
