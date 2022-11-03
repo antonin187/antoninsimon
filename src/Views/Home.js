@@ -175,7 +175,7 @@ export default function Home() {
                             <span className='spanHead basketballSpan' onMouseEnter={onEnterSpanBasketball} onMouseLeave={onLeaveSpanBasketball}>passionné de basketball</span>
                             <span className='spanHead'>.</span>
                         </div>
-                        <img className='cards profile-card' src={require('../assets/cards/profile-card.png')} />
+                        <img className='cards profile-card' src={require('../assets/cards/profile-card-black.png')} />
                         <img className='cards student-card' src={require('../assets/cards/student-card.png')} />
                         <img className='cards developer-card' src={require('../assets/cards/developer-card.png')} />
                         <img className='cards basketball-card' src={require('../assets/cards/basketball-card.png')} />
@@ -219,18 +219,18 @@ export default function Home() {
                         App de transports
                         BabyFun */}
                         <section className='sectionProjects1'>
-                           <div className='CAVEcontainer' onMouseEnter={() => {gsap.to('body', {background: '#a65467', duration: 0.5})}}
-                        onMouseLeave={() => {gsap.to('body', {background: 'black', duration: 0.5})}}
+                           <div className='CAVEcontainer' onMouseEnter={() => {gsap.to('body', {background: '#FF99A8', duration: 0.5})}}
+                        onMouseLeave={() => {gsap.to('body', {background: 'white', duration: 0.5})}}
                         >
                             <img src={require('../assets/CAVE/Panel.png')} data-speed="auto" className='CAVE_img' alt="" />
                             <div>Tags</div>
                             <div>CAVE</div>
                         </div> 
 
-                        <div className='AirZencontainer' onMouseEnter={() => {gsap.to('body', {background: '#007885', duration: 0.5})}}
-                        onMouseLeave={() => {gsap.to('body', {background: 'black', duration: 0.5})}}
+                        <div className='AirZencontainer' onMouseEnter={() => {gsap.to('body', {background: '#90C7CF', duration: 0.5})}}
+                        onMouseLeave={() => {gsap.to('body', {background: 'white', duration: 0.5})}}
                         >
-                            <img src={require('../assets/AirZen/microphone.jpg')} data-speed="auto" className='AirZen_img' alt="" />
+                            <img src={require('../assets/AirZen/Panel.png')} data-speed="auto" className='AirZen_img' alt="" />
                             <div>Tags</div>
                             <div>CAVE</div>
                         </div>
