@@ -14,6 +14,9 @@ import chefaimPres from '../assets/CHEFAIM_Presentation.png'
 // TODO remove mousefollow when it's not necessarry
 
 export default function Home() {
+    const cursorFollow = event => {
+        gsap.to('.cursor', { position: 'absolute', x: event.clientX, y: event.clientY})
+    }
 
     const handleWindowMouseMove = event => {
         gsap.to('.mouseIMGfollowerMJ', { position: 'absolute', x: event.pageX-125, y: event.pageY-200});
@@ -24,11 +27,13 @@ export default function Home() {
     const cardDeplacement = event => {
         let cards = document.querySelectorAll('.cards');
         cards.forEach(element => {
-            gsap.to(element, { position: 'absolute', x: event.pageX-(element.offsetWidth / 2), y: event.pageY + 20, duration: 0});
+            gsap.to(element, { position: 'absolute', x: event.pageX-(element.offsetWidth / 2), y: event.pageY - 20, duration: 0});
         });
-    }
+    };
 
-    window.addEventListener('mousemove', {handleWindowMouseMove, cardDeplacement});
+    window.addEventListener('mousemove', {cardDeplacement});
+    window.addEventListener('mousemove', handleWindowMouseMove);
+    window.addEventListener('mousemove', cursorFollow);
 
     const onEnterMJ = () => {
         gsap.to('.mouseIMGfollowerMJ', { borderRadius: '20px', opacity: 1, duration: 0.7, ease: "Power3.easeOut" });
@@ -53,42 +58,48 @@ export default function Home() {
     const onEnterSpanProfile = ({currentTarget}) => {
         currentTarget.classList.remove('spanHead')
         gsap.to(".spanHead", {opacity: 0.2, duration: 0.3, ease: "Power3.easeOut" });
-        gsap.to(".profile-card", {opacity: 1, duration: 0.5, ease: "Power3.easeOut", rotate: -5, scale: 1.1});
+        gsap.to(".profile-card", {display: "block", opacity: 1, duration: 0.5, ease: "Power3.easeOut", rotate: -5, scale: 1.1});
     }
     const onLeaveSpanProfile = ({currentTarget}) => {
         currentTarget.classList.add('spanHead')
         gsap.to(".spanHead", {opacity: 1, duration: 0.3, ease: "Power3.easeOut" });
-        gsap.to(".profile-card", {opacity: 0, duration: 0.5, ease: "Power3.easeOut", rotate: 0, scale: 1});
+        gsap.to(".profile-card", {display: "none", opacity: 0, duration: 0.5, ease: "Power3.easeOut", rotate: 0, scale: 1});
     }
     const onEnterSpanStudent = ({currentTarget}) => {
         currentTarget.classList.remove('spanHead')
         gsap.to(".spanHead", {opacity: 0.2, duration: 0.3, ease: "Power3.easeOut" });
-        gsap.to(".student-card", {opacity: 1, duration: 0.5, ease: "Power3.easeOut", rotate: 5, scale: 1.1});
+        gsap.to(".student-card", {display: "block", opacity: 1, duration: 0.5, ease: "Power3.easeOut", rotate: 5, scale: 1.1});
+        gsap.to(".cursor", {opacity: 0, duration: 0.5})
     }
     const onLeaveSpanStudent = ({currentTarget}) => {
         currentTarget.classList.add('spanHead')
         gsap.to(".spanHead", {opacity: 1, duration: 0.3, ease: "Power3.easeOut" });
-        gsap.to(".student-card", {opacity: 0, duration: 0.5, ease: "Power3.easeOut", rotate: 0, scale: 1 });
+        gsap.to(".student-card", {display: "none", opacity: 0, duration: 0.5, ease: "Power3.easeOut", rotate: 0, scale: 1 });
+        gsap.to(".cursor", {opacity: 1, duration: 0.5})
     }
     const onEnterSpanDeveloper = ({currentTarget}) => {
         currentTarget.classList.remove('spanHead')
         gsap.to(".spanHead", {opacity: 0.2, duration: 0.3, ease: "Power3.easeOut"});
-        gsap.to(".developer-card", {opacity: 1, duration: 0.5, ease: "Power3.easeOut", rotate: -5, scale: 1.1});
+        gsap.to(".developer-card", {display: "block", opacity: 1, duration: 0.5, ease: "Power3.easeOut", rotate: -5, scale: 1.1});
+        gsap.to(".cursor", {opacity: 0, duration: 0.5})
     }
     const onLeaveSpanDeveloper = ({currentTarget}) => {
         currentTarget.classList.add('spanHead')
         gsap.to(".spanHead", {opacity: 1, duration: 0.3, ease: "Power3.easeOut" });
-        gsap.to(".developer-card", {opacity: 0, duration: 0.5, ease: "Power3.easeOut", rotate: 0, scale: 1 });
+        gsap.to(".developer-card", {display: "none", opacity: 0, duration: 0.5, ease: "Power3.easeOut", rotate: 0, scale: 1 });
+        gsap.to(".cursor", {opacity: 1, duration: 0.5})
     }
     const onEnterSpanBasketball = ({currentTarget}) => {
         currentTarget.classList.remove('spanHead')
         gsap.to(".spanHead", {opacity: 0.2, duration: 0.3, ease: "Power3.easeOut"});
-        gsap.to(".basketball-card", {opacity: 1, duration: 0.5, ease: "Power3.easeOut", rotate: 5, scale: 1.1});
+        gsap.to(".basketball-card", {display: "block", opacity: 1, duration: 0.5, ease: "Power3.easeOut", rotate: 5, scale: 1.1});
+        gsap.to(".cursor", {opacity: 0, duration: 0.5})
     }
     const onLeaveSpanBasketball = ({currentTarget}) => {
         currentTarget.classList.add('spanHead')
         gsap.to(".spanHead", {opacity: 1, duration: 0.3, ease: "Power3.easeOut" });
-        gsap.to(".basketball-card", {opacity: 0, duration: 0.5, ease: "Power3.easeOut", rotate: 0, scale: 1 });
+        gsap.to(".basketball-card", {display: "none", opacity: 0, duration: 0.5, ease: "Power3.easeOut", rotate: 0, scale: 1 });
+        gsap.to(".cursor", {opacity: 1, duration: 0.5})
     }
 
     const onEnterGrayScale = ({currentTarget}) => {
@@ -117,14 +128,14 @@ export default function Home() {
             smoothTouch: 0.1,
           });
 
-        var tlName = gsap.timeline();
-        tlName.to('.lett1', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .1);
-        tlName.to('.lett2', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .18);
-        tlName.to('.lett3', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .26);
-        tlName.to('.lett4', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .34);
-        tlName.to('.lett5', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .42);
-        tlName.to('.lett6', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .5);
-        tlName.to('.lett7', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .58);
+        // var tlName = gsap.timeline();
+        // tlName.to('.lett1', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .1);
+        // tlName.to('.lett2', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .18);
+        // tlName.to('.lett3', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .26);
+        // tlName.to('.lett4', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .34);
+        // tlName.to('.lett5', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .42);
+        // tlName.to('.lett6', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .5);
+        // tlName.to('.lett7', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .58);
 
         gsap.to('.mockups', {transform: 'rotate(25deg)', scrollTrigger: {
             scrub: true,
@@ -136,6 +147,10 @@ export default function Home() {
   }, []);
 
   return (
+    <>
+    <section className="cursorSection">
+        <div className='cursor'></div>
+    </section>
         <div id='smooth-wrapper'>
             <div id='smooth-content'>
             <div className='mouseIMGfollowerMJ'></div>
@@ -163,7 +178,11 @@ export default function Home() {
                             <img className='chefaimImg' src={chefaimPres} alt=''/>
                         </div>
                     </div> */}
-
+                    <div className='welcomeHeader'>
+                        <div>Welcome</div>
+                        <div>On My</div>
+                        <div>Website</div>
+                    </div>
                     <div className='headContainer' onMouseMove={cardDeplacement}>
                         <div className='headSpanContainer'>
                             <span className='spanHead antoninSpan' onMouseEnter={onEnterSpanProfile} onMouseLeave={onLeaveSpanProfile}>Antonin Simon</span>
@@ -175,11 +194,21 @@ export default function Home() {
                             <span className='spanHead basketballSpan' onMouseEnter={onEnterSpanBasketball} onMouseLeave={onLeaveSpanBasketball}>passionné de basketball</span>
                             <span className='spanHead'>.</span>
                         </div>
-                        <img className='cards profile-card' src={require('../assets/cards/profile-card-black.png')} />
+                        <img className='cards profile-card' src={require('../assets/cards/profile-card-brown.png')} />
                         <img className='cards student-card' src={require('../assets/cards/student-card.png')} />
                         <img className='cards developer-card' src={require('../assets/cards/developer-card.png')} />
                         <img className='cards basketball-card' src={require('../assets/cards/basketball-card.png')} />
                     </div>
+
+                    <div className='separatorLineContainer'>
+                        <span className='line'></span>
+                    </div>
+                    <div className='subSeparatorLine'>
+                        <div>Tous</div>
+                        <div>mes</div>
+                        <div>Projets</div>
+                    </div>
+
 
                     <div className='currentProjectContainer'>
                         <div className='currentProjectDescrContainer'>
@@ -203,14 +232,6 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className='separatorLineContainer'>
-                        <span className='line'></span>
-                    </div>
-                    <div className='subSeparatorLine'>
-                        <div>Mes</div>
-                        <div>Autres</div>
-                        <div>Projets</div>
-                    </div>
 
                     <section>
                         {/* CAVE
@@ -227,7 +248,7 @@ export default function Home() {
                             <div>CAVE</div>
                         </div> 
 
-                        <div className='AirZencontainer' onMouseEnter={() => {gsap.to('body', {background: '#90C7CF', duration: 0.5})}}
+                        <div className='AirZencontainer' onMouseEnter={() => {gsap.to('body', {background: '#6AB3F8', duration: 0.5})}}
                         onMouseLeave={() => {gsap.to('body', {background: 'white', duration: 0.5})}}
                         >
                             <img src={require('../assets/AirZen/Panel.png')} data-speed="auto" className='AirZen_img' alt="" />
@@ -257,7 +278,7 @@ export default function Home() {
                         <div className='mePresentation'>Antonin SIMON, 20, Bordeaux</div>
                         <div className='descriptionPresentation'>Étudiant en informatique, c'est mon attrait pour la création qui m'a poussé vers le développement. Véritablement passionné, j'adore expérimenter à travers le code, et me faire plaisir. <img src={require("../assets/happy_face.png")} alt='' className='happyFace'/></div>
 
-                        <div className='decouvrirProjet'><img src={require("../assets/right-arrow.png")} /><span>Découvrir mes projets</span></div>
+                        {/* <div className='decouvrirProjet'><img src={require("../assets/right-arrow.png")} /><span>Découvrir mes projets</span></div> */}
                     </div>
 
                     <section className='citationSection' onMouseMove={handleWindowMouseMove}>
@@ -289,5 +310,6 @@ export default function Home() {
                 </div>
             </div>
         </div>
+        </>
   );
 }
