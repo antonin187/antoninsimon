@@ -183,6 +183,7 @@ body{
   text-transform: none!important;
   background: linear-gradient(90deg, #ee5356, #f7a9ab);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .currentProjectImgaesContainer {

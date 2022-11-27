@@ -1,4 +1,8 @@
-Page Home
-Page Project
-Page skills
-Page Contact
+export PATH="$PATH:/opt/alt/alt-nodejs16/root/usr/bin/"
+cp -vaR ~/antoninsimon/build/* ~/dev.antoninsimon.fr/ 
+cat << EOF > ~/dev.antoninsimon.fr/.htaccess
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QSA,L]
+EOF
