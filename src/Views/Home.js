@@ -12,10 +12,10 @@ import PodcastsCP from '../assets/AirZen/commpositive/Podcasts.png'
 import CitationsCP from '../assets/AirZen/commpositive/Citations.png'
 
 //Swapper CAVE
-import AllProductsCAVE from '../assets/CAVE/CAVE_allproducts.PNG'
-import MapCAVE from '../assets/CAVE/CAVE_map.PNG'
-import AddProductCAVE from '../assets/CAVE/CAVE_addproduct.PNG'
-import ProductCAVE from '../assets/CAVE/CAVE_product.PNG'
+import AllProductsCAVE from "../assets/CAVE/CAVE_allproducts.PNG"
+import MapCAVE from "../assets/CAVE/CAVE_map.PNG"
+import AddProductCAVE from "../assets/CAVE/CAVE_addproduct.png"
+import ProductCAVE from "../assets/CAVE/CAVE_product.PNG"
 
 // TODO remove mousefollow when it's not necessarry
 
