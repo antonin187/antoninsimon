@@ -1,15 +1,9 @@
 import './Home.css';
-import { useRef, useLayoutEffect, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ScrollSmoother from 'gsap/ScrollSmoother';
-import Navbar from '../Components/NavBar';
 import ImageSwapper from '../Components/ImageSwapper';
-
-
-// IMAGE
-import profilPic from '../assets/profil_pic.jpg'
-import chefaimPres from '../assets/CHEFAIM_Presentation.png'
 
 // Swapper Communication Positive
 import HomePageCP from '../assets/AirZen/commpositive/HomePage.png'
@@ -18,10 +12,10 @@ import PodcastsCP from '../assets/AirZen/commpositive/Podcasts.png'
 import CitationsCP from '../assets/AirZen/commpositive/Citations.png'
 
 //Swapper CAVE
-import AllProductsCAVE from '../assets/CAVE/CAVE_allproducts.png'
-import MapCAVE from '../assets/CAVE/CAVE_map.png'
-import AddProductCAVE from '../assets/CAVE/CAVE_addproduct.png'
-import ProductCAVE from '../assets/CAVE/CAVE_product.png'
+import AllProductsCAVE from '../assets/CAVE/CAVE_allproducts.PNG'
+import MapCAVE from '../assets/CAVE/CAVE_map.PNG'
+import AddProductCAVE from '../assets/CAVE/CAVE_addproduct.PNG'
+import ProductCAVE from '../assets/CAVE/CAVE_product.PNG'
 
 // TODO remove mousefollow when it's not necessarry
 
@@ -144,26 +138,6 @@ export default function Home() {
             <div className='mouseIMGfollowerShepard'></div>
                 {/* <Navbar /> */}
                 <div className='bodyContainer'>
-                    {/* <div className='myName'>
-                        <span className='myNameSpan lett1'>W</span>
-                        <span className='myNameSpan lett2'>E</span>
-                        <span className='myNameSpan lett3'>L</span>
-                        <span className='myNameSpan lett4'>C</span>
-                        <span className='myNameSpan lett5'>O</span>
-                        <span className='myNameSpan lett6'>M</span>
-                        <span className='myNameSpan lett7'>E</span>
-                    </div>
-
-
-                    <section className='containerProfilPic'>
-                        <img src={profilPic} data-speed="auto" className='profilePic' alt="" />
-                    </section>
-
-                    <div className='subjectContainer'>
-                        <div className='subjectImgContainer'>
-                            <img className='chefaimImg' src={chefaimPres} alt=''/>
-                        </div>
-                    </div> */}
                     <div className='welcomeHeader'>
                         <div>Welcome</div>
                         <div>On My</div>
@@ -180,10 +154,10 @@ export default function Home() {
                             <span className='spanHead basketballSpan' onMouseEnter={onEnterSpanBasketball} onMouseLeave={onLeaveSpanBasketball}>passionné de basketball</span>
                             <span className='spanHead'>.</span>
                         </div>
-                        <img className='cards profile-card' src={require('../assets/cards/profile-card-black.png')} />
-                        <img className='cards student-card' src={require('../assets/cards/student-card.png')} />
-                        <img className='cards developer-card' src={require('../assets/cards/developer-card.png')} />
-                        <img className='cards basketball-card' src={require('../assets/cards/basketball-card.png')} />
+                        <img className='cards profile-card' src={require('../assets/cards/profile-card-black.png')} alt="card-presentation"/>
+                        <img className='cards student-card' src={require('../assets/cards/student-card.png')} alt="card-presentation"/>
+                        <img className='cards developer-card' src={require('../assets/cards/developer-card.png')} alt="card-presentation"/>
+                        <img className='cards basketball-card' src={require('../assets/cards/basketball-card.png')} alt="card-presentation"/>
                     </div>
 
                     <div className='separatorLineContainer'>
@@ -212,9 +186,9 @@ export default function Home() {
                             <div className='mediumText'>Application mobile du cuisine et de gestion de ressources dans son réfrigirateur</div> */}
                         </div>
                         <div className='currentProjectImgaesContainer'>
-                            <img onMouseEnter={onEnterGrayScale} onMouseLeave={onLeaveGrayScale} className='mockups' src={require('../assets/mockups/scan.png')}></img>
-                            <img onMouseEnter={onEnterGrayScale} onMouseLeave={onLeaveGrayScale} className='mockups' src={require('../assets/mockups/Recette_1.png')}></img>
-                            <img onMouseEnter={onEnterGrayScale} onMouseLeave={onLeaveGrayScale} className='mockups' src={require('../assets/mockups/Homepage Recettes.png')}></img>
+                            <img onMouseEnter={onEnterGrayScale} onMouseLeave={onLeaveGrayScale} className='mockups' src={require('../assets/mockups/scan.png')} alt="chefaim-mockup"></img>
+                            <img onMouseEnter={onEnterGrayScale} onMouseLeave={onLeaveGrayScale} className='mockups' src={require('../assets/mockups/Recette_1.png')} alt="chefaim-mockup"></img>
+                            <img onMouseEnter={onEnterGrayScale} onMouseLeave={onLeaveGrayScale} className='mockups' src={require('../assets/mockups/Homepage Recettes.png')} alt="chefaim-mockup"></img>
                         </div>
                     </div>
 
