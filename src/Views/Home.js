@@ -1,28 +1,34 @@
 import './Home.css';
-import { useRef, useLayoutEffect, useEffect } from "react";
+import { useRef, useLayoutEffect, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ScrollSmoother from 'gsap/ScrollSmoother';
 import Navbar from '../Components/NavBar';
+import ImageSwapper from '../Components/ImageSwapper';
 
 
 // IMAGE
 import profilPic from '../assets/profil_pic.jpg'
 import chefaimPres from '../assets/CHEFAIM_Presentation.png'
 
+// Swapper Communication Positive
+import HomePageCP from '../assets/AirZen/commpositive/HomePage.png'
+import TableauCP from '../assets/AirZen/commpositive/TableauExpression.png'
+import PodcastsCP from '../assets/AirZen/commpositive/Podcasts.png'
+import CitationsCP from '../assets/AirZen/commpositive/Citations.png'
+
+//Swapper CAVE
+import AllProductsCAVE from '../assets/CAVE/CAVE_allproducts.png'
+import MapCAVE from '../assets/CAVE/CAVE_map.png'
+import AddProductCAVE from '../assets/CAVE/CAVE_addproduct.png'
+import ProductCAVE from '../assets/CAVE/CAVE_product.png'
 
 // TODO remove mousefollow when it's not necessarry
 
 export default function Home() {
-    const cursorFollow = event => {
-        gsap.to('.cursor', { position: 'absolute', x: event.clientX, y: event.clientY})
-    }
 
-    const handleWindowMouseMove = event => {
-        gsap.to('.mouseIMGfollowerMJ', { position: 'absolute', x: event.pageX-125, y: event.pageY-200});
-        gsap.to('.mouseIMGfollowerJazzy', { position: 'absolute', x: event.pageX-125, y: event.pageY-200});
-        gsap.to('.mouseIMGfollowerShepard', { position: 'absolute', x: event.pageX-125, y: event.pageY-200});
-    };
+    const arrayPicturesCP = [HomePageCP, TableauCP, PodcastsCP, CitationsCP]
+    const arrayPicturesCAVE = [AllProductsCAVE, MapCAVE, AddProductCAVE, ProductCAVE]
 
     const cardDeplacement = event => {
         let cards = document.querySelectorAll('.cards');
@@ -31,29 +37,13 @@ export default function Home() {
         });
     };
 
+    const mouseFollowerDeplacement = event => {
+        gsap.to(".CAVEFollower", { position: 'absolute', x: event.pageX + 20, y: event.pageY + 20, duration: 0})
+        gsap.to(".CPFollower", { position: 'absolute', x: event.pageX + 20, y: event.pageY + 20, duration: 0})
+    }
+
     window.addEventListener('mousemove', {cardDeplacement});
-    window.addEventListener('mousemove', handleWindowMouseMove);
-    window.addEventListener('mousemove', cursorFollow);
-
-    const onEnterMJ = () => {
-        gsap.to('.mouseIMGfollowerMJ', { borderRadius: '20px', opacity: 1, duration: 0.7, ease: "Power3.easeOut" });
-    };
-    const onEnterJazzy = () => {
-        gsap.to('.mouseIMGfollowerJazzy', { borderRadius: '20px', opacity: 1, duration: 0.7, ease: "Power3.easeOut" });
-    };
-    const onEnterShepard = () => {
-        gsap.to('.mouseIMGfollowerShepard', { borderRadius: '20px', opacity: 1, duration: 0.7, ease: "Power3.easeOut" });
-    };
-
-    const onLeaveMJ = () => {
-        gsap.to('.mouseIMGfollowerMJ', { borderRadius: '60px', opacity: 0, duration: 0.7, ease: "Power3.easeOut" });
-    };
-    const onLeaveJazzy = () => {
-        gsap.to('.mouseIMGfollowerJazzy', { borderRadius: '60px', opacity: 0, duration: 0.7, ease: "Power3.easeOut" });
-    };
-    const onLeaveShepard = () => {
-        gsap.to('.mouseIMGfollowerShepard', { borderRadius: '60px', opacity: 0, duration: 0.7, ease: "Power3.easeOut" });
-    };
+    window.addEventListener('mousemove', {mouseFollowerDeplacement});
 
     const onEnterSpanProfile = ({currentTarget}) => {
         currentTarget.classList.remove('spanHead')
@@ -117,7 +107,13 @@ export default function Home() {
 //   const q = gsap.utils.selector(app);
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-  
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       console.log('This will run every second!');
+//     }, 1000);
+//     return () => clearInterval(interval);
+//   }, [project]);
+
   useEffect(() => {
     let ctx = gsap.context(() => {
 
@@ -128,15 +124,6 @@ export default function Home() {
             smoothTouch: 0.1,
           });
 
-        // var tlName = gsap.timeline();
-        // tlName.to('.lett1', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .1);
-        // tlName.to('.lett2', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .18);
-        // tlName.to('.lett3', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .26);
-        // tlName.to('.lett4', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .34);
-        // tlName.to('.lett5', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .42);
-        // tlName.to('.lett6', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .5);
-        // tlName.to('.lett7', {opacity: 1, y: 0, duration: 1, ease: "Power3.easeOut"}, .58);
-
         gsap.to('.mockups', {transform: 'rotate(25deg)', scrollTrigger: {
             scrub: true,
         }})
@@ -145,7 +132,6 @@ export default function Home() {
     })
     return () => ctx.revert();
   }, []);
-
   return (
     <>
     <section className="cursorSection">
@@ -194,7 +180,7 @@ export default function Home() {
                             <span className='spanHead basketballSpan' onMouseEnter={onEnterSpanBasketball} onMouseLeave={onLeaveSpanBasketball}>passionné de basketball</span>
                             <span className='spanHead'>.</span>
                         </div>
-                        <img className='cards profile-card' src={require('../assets/cards/profile-card-brown.png')} />
+                        <img className='cards profile-card' src={require('../assets/cards/profile-card-black.png')} />
                         <img className='cards student-card' src={require('../assets/cards/student-card.png')} />
                         <img className='cards developer-card' src={require('../assets/cards/developer-card.png')} />
                         <img className='cards basketball-card' src={require('../assets/cards/basketball-card.png')} />
@@ -239,23 +225,43 @@ export default function Home() {
                         Banque Alimenatire
                         App de transports
                         BabyFun */}
-                        <section className='sectionProjects1'>
-                           <div className='CAVEcontainer' onMouseEnter={() => {gsap.to('body', {background: '#FF99A8', duration: 0.5})}}
-                        onMouseLeave={() => {gsap.to('body', {background: 'white', duration: 0.5})}}
+                        <section className='sectionProjects1' onMouseMove={mouseFollowerDeplacement}>
+                           <div className='CAVEcontainer' onMouseEnter={() => {gsap.to('body', {background: '#FF99A8', duration: 0.5}); gsap.to('.CAVEFollower', {opacity: 1, duration: 0.5})}}
+                        onMouseLeave={() => {gsap.to('body', {background: 'white', duration: 0.5}); gsap.to('.CAVEFollower', {opacity: 0, duration: 0.5})}}
                         >
                             <img src={require('../assets/CAVE/Panel.png')} data-speed="auto" className='CAVE_img' alt="" />
                             <div>Tags</div>
                             <div>CAVE</div>
                         </div> 
 
-                        <div className='AirZencontainer' onMouseEnter={() => {gsap.to('body', {background: '#6AB3F8', duration: 0.5})}}
-                        onMouseLeave={() => {gsap.to('body', {background: 'white', duration: 0.5})}}
+                        <div className='AirZencontainer' onMouseEnter={() => {gsap.to('body', {background: '#6AB3F8', duration: 0.5}); gsap.to('.CPFollower', {opacity: 1, duration: 0.5})}}
+                        onMouseLeave={() => {gsap.to('body', {background: 'white', duration: 0.5}); gsap.to('.CPFollower', {opacity: 0, duration: 0.5})}}
                         >
                             <img src={require('../assets/AirZen/Panel.png')} data-speed="auto" className='AirZen_img' alt="" />
                             <div>Tags</div>
                             <div>CAVE</div>
                         </div>
                         </section>
+
+                        {/* CAVE Follower */}
+                        <div className='CAVEFollower'>
+                            <div className='dotContainer'>
+                                <div className='dot' style={{backgroundColor: "#FD5F57"}} />
+                                <div className='dot' style={{backgroundColor: "#FDBC2E"}} />
+                                <div className='dot' style={{backgroundColor: "#28C840"}} />
+                            </div>
+                            <ImageSwapper images={arrayPicturesCAVE} />
+                        </div>
+
+                        {/* CP Follower */}
+                        <div className='CPFollower'>
+                            <div className='dotContainer'>
+                                <div className='dot' style={{backgroundColor: "#FD5F57"}} />
+                                <div className='dot' style={{backgroundColor: "#FDBC2E"}} />
+                                <div className='dot' style={{backgroundColor: "#28C840"}} />
+                            </div>
+                            <ImageSwapper images={arrayPicturesCP} />
+                        </div>
                         
                         {/* <section className='AirZenSection'>
                             
@@ -281,29 +287,6 @@ export default function Home() {
                         {/* <div className='decouvrirProjet'><img src={require("../assets/right-arrow.png")} /><span>Découvrir mes projets</span></div> */}
                     </div>
 
-                    <section className='citationSection' onMouseMove={handleWindowMouseMove}>
-                        {/* <div className='inspirationnal'>
-                            <span>"Inspirationnal" (défilement avec emoji bulle)</span>
-                        </div> */}
-                        <div className='citationContainerRight'>
-                            <div className='citation citRight' onMouseEnter={onEnterMJ} onMouseLeave={onLeaveMJ} onMouseMove={handleWindowMouseMove}>
-                                “Il faut se fixer des buts avant de pouvoir les atteindre.”
-                            </div>
-                            <span className='citLibelle citRight'>&#8212; Michael Jordan, NBA Hall Of Famer.</span>
-                        </div>
-                        <div className='citationContainerLeft'>
-                            <div className='citation citLeft' onMouseEnter={onEnterJazzy} onMouseLeave={onLeaveJazzy} onMouseMove={handleWindowMouseMove}>
-                                “Connaître mes faiblesses est ma plus grande force.”
-                            </div>
-                            <span className='citLibelle citLeft'>&#8212; Jazzy Bazz, artiste Hip-Hop</span>
-                        </div>
-                        <div className='citationContainerRight'>
-                            <div className='citation citRight' onMouseEnter={onEnterShepard} onMouseLeave={onLeaveShepard} onMouseMove={handleWindowMouseMove}>
-                                “Pour moi, l'essentiel est toujours de démocratiser l'art, et de prendre le risque de le faire.”
-                            </div>
-                            <span className='citLibelle citRight'>&#8212; Shepard Fairay, street artiste</span>
-                        </div>
-                    </section>
 
                     {/* TODO Delete marger */}
                     <div className='marger'>hello</div>
