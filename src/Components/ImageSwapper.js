@@ -5,7 +5,7 @@ export default function ImageSwapper ({images}) {
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            if(currentIndex == images.length - 1) {
+            if(currentIndex === images.length - 1) {
                 setCurrentIndex(0);
             } 
             else {
@@ -17,6 +17,6 @@ export default function ImageSwapper ({images}) {
     })
 
     return (
-        <img src={images[currentIndex]} style={{maxWidth: "27vw", display: "block", borderRadius: "3px"}} />
+        <img src={images[currentIndex]} style={{maxWidth: "30vw", maxHeight: "70vh", display: "block", borderRadius: "3px"}}  alt="project-img"/>
     )
 }

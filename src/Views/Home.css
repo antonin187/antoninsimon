@@ -225,7 +225,7 @@ body{
 
 .AirZenSection {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .AirZencontainer {
   align-self: flex-end;
@@ -286,7 +286,7 @@ body{
 .subjectContainer {
     height: 0;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
 }
 .subjectImgContainer {
@@ -406,7 +406,7 @@ body{
 }
 .citationContainerRight {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   flex-direction: column;
   margin: 10vh 0 10vh 0;
 }
