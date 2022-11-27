@@ -12,7 +12,7 @@ import PodcastsCP from '../assets/AirZen/commpositive/Podcasts.png'
 import CitationsCP from '../assets/AirZen/commpositive/Citations.png'
 
 //Swapper CAVE
-import AllProductsCAVE from '../assets/CAVE/CAVE_allproducts.PNG'
+import AllProductsCAVE from '../../src/assets/CAVE/CAVE_allproducts.PNG'
 import MapCAVE from '../assets/CAVE/CAVE_map.PNG'
 import AddProductCAVE from '../assets/CAVE/CAVE_addproduct.PNG'
 import ProductCAVE from '../assets/CAVE/CAVE_product.PNG'
