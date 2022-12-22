@@ -197,13 +197,13 @@ body{
   position: absolute;
 }
 .mockups:nth-child(1) {
-  transform: translate(-300px, -100px) rotate(-15deg);
+  transform: translate(-500px, -100px) rotate(-30deg);
 }
 .mockups:nth-child(2) {
-  transform: translate(-150px, -50px) rotate(-10deg);
+  transform: translate(-250px, -50px) rotate(-20deg);
 }
 .mockups:nth-child(3) {
-  transform: translate(0px, 0px) rotate(-5deg);
+  transform: translate(0px, 0px) rotate(-15deg);
 }
 
 .sectionProjects1 {

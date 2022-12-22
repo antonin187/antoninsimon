@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ScrollSmoother from 'gsap/ScrollSmoother';
 import ImageSwapper from '../Components/ImageSwapper';
+import DraggableComponent from "../Components/DraggableComponent";
 
 // Swapper Communication Positive
 import HomePageCP from '../assets/AirZen/commpositive/HomePage.png'
@@ -96,7 +97,7 @@ export default function Home() {
         console.log("Leave")
         // currentTarget.classList.remove('grayscale')
     }
-    
+
 
 //   const q = gsap.utils.selector(app);
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -112,13 +113,13 @@ export default function Home() {
     let ctx = gsap.context(() => {
 
         ScrollSmoother.create({
-            smooth: 2, // how long (in seconds) it takes to "catch up" to the native scroll position
+            smooth: 0.5, // how long (in seconds) it takes to "catch up" to the native scroll position
             effects: true, // looks for data-speed and data-lag attributes on elements
             content: "#smooth-content",
             smoothTouch: 0.1,
           });
 
-        gsap.to('.mockups', {transform: 'rotate(25deg)', scrollTrigger: {
+        gsap.to('.mockups', {transform: 'rotate(10deg)', scrollTrigger: {
             scrub: true,
         }})
         gsap.to('.mockups', {filter: "grayscale(100%)"})
@@ -253,6 +254,8 @@ export default function Home() {
                         <div>About</div>
                         <div>Me</div>
                     </div>
+
+                    <DraggableComponent />
 
                     <div className='myPresentation'>
                         <div className='mePresentation'>Antonin SIMON, 20, Bordeaux</div>

@@ -1,0 +1,47 @@
+.draggable-container {
+    height:801px;
+    overflow:visible;
+    padding:0;
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.basketballDragger {
+    z-index: 100;
+    position: absolute;
+    top:0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+.basketballDragger>img {
+    width: 80%;
+}
+#cible {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "MaziusExtraItalic", serif;
+    font-size: 2.8rem;
+    color: white;
+    background-color: var(--dark);
+    border-radius: 50%;
+}
+#cible-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    border: var(--dark) 2px solid;
+    border-radius: 50%;
+}
